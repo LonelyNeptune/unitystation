@@ -1,11 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
-using Mirror;
+using Mirror; 
 
 
 public class GrownFood : NetworkBehaviour, IInteractable<HandActivate>
@@ -75,7 +70,8 @@ public class GrownFood : NetworkBehaviour, IInteractable<HandActivate>
 	public void SetupChemicalContents()
 	{
 		if (plantData.ReagentProduction.Count > 0)
-		{			var ChemicalDictionary = new Dictionary<string, float>();
+		{
+			var ChemicalDictionary = new Dictionary<string, float>();
 			foreach (var Chemical in plantData.ReagentProduction)
 			{
 				ChemicalDictionary[Chemical.String] = (Chemical.Int * (plantData.Potency / 100f));

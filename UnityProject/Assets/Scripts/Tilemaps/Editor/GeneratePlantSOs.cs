@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using UnityEditor;
 using Newtonsoft.Json;
-using System.IO;
 
 public class GeneratePlantSOs : EditorWindow
 {
@@ -84,7 +82,8 @@ public class GeneratePlantSOs : EditorWindow
 				}
 				plantdata.ProduceSprite.Texture = (AssetDatabase.LoadAssetAtPath(@"Assets\textures\objects\hydroponics\harvest\harvest_" + EEEseed_packet+ ".png", typeof(Texture2D)) as Texture2D);
 				if (plantdata.ProduceSprite.Texture == null)
-				{					plantdata.ProduceSprite.Texture = (AssetDatabase.LoadAssetAtPath(@"Assets\textures\objects\hydroponics\harvest\harvest_" + EEEseed_packet+"s"+ ".png", typeof(Texture2D)) as Texture2D);
+				{
+					plantdata.ProduceSprite.Texture = (AssetDatabase.LoadAssetAtPath(@"Assets\textures\objects\hydroponics\harvest\harvest_" + EEEseed_packet+"s"+ ".png", typeof(Texture2D)) as Texture2D);
 				}
 				if (plantdata.ProduceSprite.Texture == null)
 				{
@@ -267,7 +266,8 @@ public class GeneratePlantSOs : EditorWindow
 			if (PlantDictionaryObject.ContainsKey(pant.Value.plantData.Name))
 			{
 				var Mutations = JsonConvert.DeserializeObject<List<string>>(PlantDictionaryObject[pant.Value.plantData.Name].ToString());
-				foreach (var Mutation in Mutations) {					if (Mutation.Length != 0)
+				foreach (var Mutation in Mutations) {
+					if (Mutation.Length != 0)
 					{
 						if (PlantDictionary[Mutation] != null)
 						{
@@ -308,13 +308,16 @@ public class GeneratePlantSOs : EditorWindow
 
 		}
 		if (f_rom.plantData.WeedGrowthRate != to.plantData.WeedGrowthRate)
-		{			to.WeedGrowthRateChange = to.plantData.WeedGrowthRate = f_rom.plantData.WeedGrowthRate;
+		{
+			to.WeedGrowthRateChange = to.plantData.WeedGrowthRate = f_rom.plantData.WeedGrowthRate;
 		}
 		if (f_rom.plantData.GrowthSpeed != to.plantData.GrowthSpeed)
-		{			to.GrowthSpeedChange = to.plantData.GrowthSpeed = f_rom.plantData.GrowthSpeed;
+		{
+			to.GrowthSpeedChange = to.plantData.GrowthSpeed = f_rom.plantData.GrowthSpeed;
 		}
 		if (f_rom.plantData.Potency != to.plantData.Potency)
-		{			to.PotencyChange = to.plantData.Potency = f_rom.plantData.Potency;
+		{
+			to.PotencyChange = to.plantData.Potency = f_rom.plantData.Potency;
 		}
 			if (f_rom.plantData.Endurance != to.plantData.Endurance)
 		{
